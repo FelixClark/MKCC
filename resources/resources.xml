@@ -1,0 +1,34 @@
+<resources>
+    <fonts>
+		<font id="Steps_Font" filename="fonts/Steps_Font.fnt"/>
+		<font id="Steps_Font_Small" filename="fonts/Steps_Font_Small.fnt"/>
+		<font id="Battery_Font" filename="fonts/Battery_Font.fnt" antialias="false"/>
+		<font id="Roboto_30px_Font" filename="fonts/Roboto_30px.fnt" filter="0123456789-" />
+		<font id="Heart_Font" filename="fonts/Webdings.fnt" filter="g" />
+		
+	</fonts>
+	
+	<drawables>
+    	<bitmap id="LauncherIcon" filename="drawables/launcher_icon.png" />
+	<bitmap id="MKCC" filename="drawables/MKCC_280px.png" compress="true" automaticPalette="false">
+        <palette>
+            <color>f2f2f2</color>
+            <color>744d33</color>
+            <color>005b7e</color>
+            <color>e3dac9</color>
+            <color>514545</color>
+            <color>b50000</color>
+            <color>161313</color>
+            <color>502d16</color>
+            <color>000000</color>
+            <color>808080</color>
+        </palette>
+		</bitmap>
+
+    <bitmap id="HeartSymbol" filename="drawables/heart.png">
+	        <palette>
+            <color>fffffb</color>
+        </palette>
+		</bitmap>  
+	</drawables>
+</resources>

@@ -1,4 +1,14 @@
 <layout id="WatchFace">
-            <bitmap id="MKCC" x="center" y="center" filename="../../resources/drawables/MKCC_280px.png" />
-    <label id="TimeLabel" x="center" y="center" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
+		<!--<bitmap id="BoagsLogo" x="center" y="center" filename="../../resources/drawables/XXX_280px.png" compress="true" automaticPalette="true"/>-->
+
+        <!-- <bitmap id="BatterySymbol" x="20" y="120" filename="../drawables/Battery.png" /> -->
+        <bitmap id="HeartSymbol" x="228" y="110" filename="../../resources/drawables/heart.png" />  
+        
+              
+	    <label id="TimeLabel" x="center" y="105" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLACK" />
+	    <label id="TopRedLabel" x="center" y="70" font="Graphics.FONT_GLANCE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+	    <label id="BottomRedLabel" x="center" y="188" font="@Fonts.Steps_Font" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+	    <label id="BatteryLabel" x="42" y="110" font="@Fonts.Battery_Font" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+	    <label id="LeftLabel" x="42" y="130" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+	    <label id="RightLabel" x="240" y="130" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
 </layout>
