@@ -8,7 +8,9 @@ import Toybox.WatchUi;
 
 
 class MKCCView extends WatchUi.WatchFace {
-    private var _font as FontResource?;
+    private var _font30px as FontResource?;
+    private var _font19px as FontResource?;
+    private var _font22px as FontResource?;
     private var _batteryFont as FontResource?;
     private var _isAwake as Boolean?;
     private var _screenShape as ScreenShape;
@@ -33,10 +35,12 @@ class MKCCView extends WatchUi.WatchFace {
         //setLayout(Rez.Layouts.WatchFace(dc));
         
         // Load the custom font we use for drawing the 3, 6, 9, and 12 on the watchface.
-        _font = WatchUi.loadResource($.Rez.Fonts.Roboto_30px_Font) as FontResource;
         _batteryFont = WatchUi.loadResource($.Rez.Fonts.Battery_Font) as FontResource;
         _heartFont = WatchUi.loadResource($.Rez.Fonts.Heart_Font) as FontResource;
-
+        _font19px = WatchUi.loadResource($.Rez.Fonts.Roboto_19px_Font) as FontResource;
+        _font22px = WatchUi.loadResource($.Rez.Fonts.Roboto_22px_Font) as FontResource;
+        _font30px = WatchUi.loadResource($.Rez.Fonts.Roboto_30px_Font) as FontResource;
+        
         // If this device supports the Do Not Disturb feature,
         // load the associated Icon into memory.
         /*
@@ -122,7 +126,7 @@ class MKCCView extends WatchUi.WatchFace {
 
         _heartRate = GetHeartRate();
         targetDc.drawText(width - 38,height/2 - 25, _heartFont,"g",Graphics.TEXT_JUSTIFY_CENTER);
-        targetDc.drawText(width - 38, height/2 - 5, _font, _heartRate, Graphics.TEXT_JUSTIFY_CENTER);
+        targetDc.drawText(width - 38, height/2 - 5, _font30px, _heartRate, Graphics.TEXT_JUSTIFY_CENTER);
 
 
         //Steps
@@ -131,7 +135,7 @@ class MKCCView extends WatchUi.WatchFace {
         var _stepsFont = WatchUi.loadResource($.Rez.Fonts.Steps_Font) as FontResource;
         targetDc.drawText(width/2, height - 38, _stepsFont, "S"+steps.toString(), Graphics.TEXT_JUSTIFY_CENTER);
 
-
+        drawDateString(targetDc,width/2,18);
         // Use white to draw the hour and minute hands
         targetDc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 
@@ -285,7 +289,7 @@ class MKCCView extends WatchUi.WatchFace {
 		}
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             dc.drawText(38, dc.getHeight()/2-25, _batteryFont, batSymbol, Graphics.TEXT_JUSTIFY_CENTER);
-        	dc.drawText(38, dc.getHeight()/2-5, _font, batStr, Graphics.TEXT_JUSTIFY_CENTER);
+        	dc.drawText(38, dc.getHeight()/2-5, _font30px, batStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
     
     function GetHeartRate() 
@@ -388,10 +392,10 @@ class MKCCView extends WatchUi.WatchFace {
     //! @param y The y location of the text
     private function drawDateString(dc as Dc, x as Number, y as Number) as Void {
         var info = Calendar.info(Time.now(), Time.FORMAT_LONG);
-        var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
+        var dateStr = Lang.format("$1$ $2$", [info.month, info.day]).toUpper();
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(x, y, Graphics.FONT_MEDIUM, dateStr, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(x, y, _font19px, dateStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     //! Compute a bounding box from the passed in points
